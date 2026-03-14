@@ -12,24 +12,60 @@ export default function GlitchTitle() {
     return () => clearInterval(id)
   }, [])
 
+  const baseStyle = {
+    fontFamily: "'Orbitron', monospace",
+    fontSize: 'clamp(2.4rem, 6vw, 5rem)',
+    fontWeight: 900,
+    letterSpacing: '0.15em',
+    color: '#e6edf3',
+    textTransform: 'uppercase',
+    position: 'relative',
+    userSelect: 'none',
+    margin: 0,
+    animation: glitch ? 'glitch 0.18s steps(2) infinite' : 'none',
+  }
+
+  const ghostBase = {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    fontFamily: "'Orbitron', monospace",
+    fontSize: 'clamp(2.4rem, 6vw, 5rem)',
+    fontWeight: 900,
+    letterSpacing: '0.15em',
+    textTransform: 'uppercase',
+    pointerEvents: 'none',
+    whiteSpace: 'nowrap',
+    margin: 0,
+  }
+
   return (
     <div style={{ position: 'relative', display: 'inline-block' }}>
-      <h1 className={`title-main ${glitch ? 'glitching' : ''}`}>
-        <span className="title-accent">REPO</span>SPECTRE
+      <h1 style={baseStyle}>
+        <span style={{ color: '#3fb950' }}>REPO</span>SPECTRE
       </h1>
       {glitch && (
         <>
-          <span className="title-ghost ghost-red">REPOSPECTRE</span>
-          <span className="title-ghost ghost-blue">REPOSPECTRE</span>
+          <h1 style={{
+            ...ghostBase,
+            color: '#f85149',
+            clipPath: 'polygon(0 25%, 100% 25%, 100% 48%, 0 48%)',
+            transform: 'translate(-3px, -3px)',
+            opacity: 0.75,
+          }}>
+            REPOSPECTRE
+          </h1>
+          <h1 style={{
+            ...ghostBase,
+            color: '#58a6ff',
+            clipPath: 'polygon(0 62%, 100% 62%, 100% 84%, 0 84%)',
+            transform: 'translate(3px, 3px)',
+            opacity: 0.75,
+          }}>
+            REPOSPECTRE
+          </h1>
         </>
       )}
-      <style jsx>{`
-        .title-main {
-          font-family: 'Orbitron', monospace;
-          font-size: clamp(2.4rem, 6vw, 5rem);
-          font-weight: 900;
-          letter-spacing: 0.15em;
-          color: #e6edf3;
-          text-transform: uppercase;
-          position: relative;
-          user-select:
+    </div>
+  )
+}
