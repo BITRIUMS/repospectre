@@ -1,184 +1,189 @@
+# 👁 RepoSpectre — AI Repository Intelligence Agent
+
 <div align="center">
 
-# 👁 REPOSPECTRE
+**🌐 Live at [repospectre.vercel.app](https://repospectre.vercel.app)**
 
-### AI Repository Intelligence Agent
-
-*Analyze any GitHub repository with surgical precision — powered by Hermes-3-70B*
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_USERNAME/repospectre&env=OPENROUTER_API_KEY&envDescription=OpenRouter%20API%20key%20for%20Hermes-3-70B%20access&envLink=https://openrouter.ai/keys)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Next.js](https://img.shields.io/badge/Next.js-14-black)](https://nextjs.org)
-[![Hermes](https://img.shields.io/badge/AI-Hermes--3--70B-brightgreen)](https://openrouter.ai)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-repospectre.vercel.app-3fb950?style=for-the-badge&logo=vercel)](https://repospectre.vercel.app)
+[![Model](https://img.shields.io/badge/AI-Hermes--4--70B-brightgreen?style=for-the-badge)](https://openrouter.ai)
+[![Next.js](https://img.shields.io/badge/Next.js-14.2-black?style=for-the-badge&logo=next.js)](https://nextjs.org)
+[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
 </div>
 
 ---
 
-## 🔍 What is RepoSpectre?
+## What is RepoSpectre?
 
-**RepoSpectre** is an AI-powered repository intelligence agent that performs deep analysis on any public GitHub repository. It combines GitHub's REST API with NousResearch's **Hermes-3-70B** language model (via OpenRouter) to deliver comprehensive security audits, binary/DLL detection, dependency analysis, and AI-generated strategic intelligence — all wrapped in a cinematic black & white terminal interface.
+RepoSpectre is an AI-powered intelligence agent that performs deep analysis on any public GitHub repository. Available at **[repospectre.vercel.app](https://repospectre.vercel.app)**, it transforms raw repository data into a structured, actionable intelligence report in under 30 seconds — covering security risks, binary threats, dependency health, and code quality, all synthesized by a large language model into a single authoritative verdict.
 
-> *"Not just a linter. Not just a scanner. A full-spectrum repository intelligence agent."*
-
----
-
-## ✨ Features
-
-| Module | Description |
-|--------|-------------|
-| 🛡 **Security Audit** | Detects hardcoded secrets, misconfigurations, and vulnerabilities |
-| ⬡ **DLL/Binary Scanner** | Identifies `.dll`, `.exe`, `.bin`, `.so` files and flags suspicious ones |
-| 📦 **Dependency Analysis** | Audits `package.json`, `requirements.txt`, `go.mod`, `Cargo.toml` and more |
-| 🔬 **Code Quality** | Assesses documentation, testing, CI/CD, project structure |
-| 🤖 **Hermes Intelligence** | AI-generated verdict and strategic recommendations |
-| 📊 **Health Scores** | Visual score rings for Health, Security, and Code Quality |
-| 🎯 **Risk Assessment** | Overall risk level: LOW / MEDIUM / HIGH / CRITICAL |
+It is not a linter. It is not a simple dependency checker. RepoSpectre behaves like a senior security engineer and code reviewer working simultaneously, examining a repository from every angle and delivering conclusions that are specific, honest, and immediately useful.
 
 ---
 
-## 🚀 Quick Deploy (Vercel)
+## What Does It Do?
 
-### Option 1 — One-Click Deploy
+### 🛡 Security Audit
+RepoSpectre examines the repository's structure, configuration files, CI/CD setup, and exposed metadata to identify security weaknesses. It detects missing security policies, risky configurations, and patterns that commonly lead to vulnerabilities. Every finding is ranked by severity — Critical, High, Medium, Low, or Informational — so you always know what to fix first.
 
-Click the **Deploy with Vercel** button above, then:
-1. Set `OPENROUTER_API_KEY` to your OpenRouter key
-2. Deploy!
+### ⬡ DLL & Binary File Scanner
+One of RepoSpectre's most distinctive capabilities. It scans the entire file tree of a repository and flags compiled binaries — `.dll`, `.exe`, `.bin`, `.so`, `.dylib`, and similar formats. Finding unexpected binaries in a source code repository is a serious red flag, and RepoSpectre surfaces them immediately with a clear verdict: **clean**, **suspicious**, or **malicious**.
 
-### Option 2 — Manual Deploy
+### 📦 Dependency Analysis
+RepoSpectre reads and interprets dependency manifests from all major ecosystems — npm, Python pip, Go modules, Rust Cargo, and Java Maven/Gradle. It reports total dependency count, estimates how many are outdated, flags potentially vulnerable packages, and provides ecosystem-specific observations about how the project manages its external dependencies.
 
-```bash
-# Clone the repo
-git clone https://github.com/YOUR_USERNAME/repospectre.git
-cd repospectre
+### 🔬 Code Quality Assessment
+Beyond security, RepoSpectre evaluates the engineering health of the codebase. It checks for the presence of automated tests, CI/CD pipelines, documentation files, Dockerfiles, and consistent project structure. The result is a quality score from 0 to 100 alongside specific insights about what the project does well and where it falls short.
 
-# Install dependencies
-npm install
+### 🤖 Hermes-4-70B AI Verdict
+Every report concludes with a verdict generated by Hermes-4-70B, NousResearch's flagship large language model. The model synthesizes every data point collected — file structure, contributor count, star history, open issues, binary presence, dependency state, security findings — and produces a concise expert conclusion that identifies the most critical risk and delivers one concrete recommendation.
 
-# Copy env file
-cp .env.example .env.local
+### 📊 Health Score Dashboard
+Three animated score rings give an immediate visual summary:
+- **Health Score** — overall repository maturity and maintenance activity
+- **Security Score** — the security posture based on all audit findings
+- **Quality Score** — engineering practices and code hygiene
 
-# Add your OpenRouter API key to .env.local
-# OPENROUTER_API_KEY=sk-or-v1-...
+### 🎯 Risk Classification
+Every scan ends with an overall risk level:
 
-# Run locally
-npm run dev
-```
-
-Then open [http://localhost:3000](http://localhost:3000)
-
----
-
-## 🔑 API Keys
-
-### OpenRouter (Required)
-RepoSpectre uses **Hermes-3-70B** via OpenRouter for AI analysis.
-
-1. Visit [openrouter.ai](https://openrouter.ai)
-2. Create a free account (new accounts receive free credits)
-3. Go to [openrouter.ai/keys](https://openrouter.ai/keys)
-4. Create a new API key
-5. Add it to your Vercel environment variables as `OPENROUTER_API_KEY`
-
-> **Free tier:** New OpenRouter accounts come with free credits sufficient for dozens of repository analyses using Hermes-3-70B.
-
-### GitHub Token (Optional)
-Without a GitHub token, the GitHub API allows 60 requests/hour. With a token, it's 5,000/hour.
-
-1. Visit [github.com/settings/tokens](https://github.com/settings/tokens)
-2. Generate a token with `public_repo` scope (read-only)
-3. Add as `GITHUB_TOKEN` in your environment variables
+| Level | What It Means |
+|---|---|
+| 🟢 **LOW** | Healthy repository, safe to use or contribute to |
+| 🟡 **MEDIUM** | Some concerns worth reviewing before proceeding |
+| 🟠 **HIGH** | Significant issues that need attention |
+| 🔴 **CRITICAL** | Serious problems — use with extreme caution |
 
 ---
 
-## 🏗 Tech Stack
+## What Makes RepoSpectre Interesting and Unique?
 
-- **Frontend:** Next.js 14, React 18, pure CSS animations
-- **Backend:** Next.js API Routes (Vercel Serverless Functions)
-- **AI Model:** NousResearch Hermes-3-Llama-3.1-70B via OpenRouter
-- **Data Source:** GitHub REST API v3
-- **Deployment:** Vercel (zero-config)
-- **Fonts:** Orbitron (display), JetBrains Mono (code)
+### It Thinks, Not Just Scans
+Most repository analysis tools are rule-based — they check a list of conditions and return pass or fail. RepoSpectre uses a large language model that reasons across all collected signals together. It recognizes context. A repository with no tests, no CI, outdated dependencies, and an unexpected `.exe` in the root represents a fundamentally different risk profile than one that simply has an old lockfile. The AI verdict reflects that kind of judgment.
+
+### Binary Detection in Source Code Repositories
+Finding compiled binaries inside a source code repository — especially undocumented ones — is one of the clearest indicators of supply chain compromise or embedded malware. RepoSpectre makes this check automatic and prominent. This is a capability almost no other web-based tool offers out of the box.
+
+### Multi-Ecosystem Dependency Intelligence
+Rather than supporting only npm or only Python, RepoSpectre reads and interprets dependency files across all major language ecosystems in a single pass. You get a consistent view of dependency health regardless of what language the project uses.
+
+### No Login Required
+Open **[repospectre.vercel.app](https://repospectre.vercel.app)**, paste a repository URL, and get results. No account, no API key input required from the user, no data stored. The analysis is stateless and private by design.
+
+### Cinematic Terminal Interface
+RepoSpectre looks unlike any other developer tool. It uses a full animated terminal aesthetic — matrix rain background, glitch title effects, typewriter boot sequences, CRT scanlines, and animated SVG score rings. The interface is designed to feel like operating a real intelligence system. This is not cosmetic indulgence — it communicates what the tool actually is: an agent working on your behalf.
 
 ---
 
-## 📁 Project Structure
+## How to Use RepoSpectre
+
+### Step 1 — Open the Agent
+
+Go to **[repospectre.vercel.app](https://repospectre.vercel.app)**
+
+The terminal interface will boot up, confirming that all scan modules are ready and the Hermes-4-70B neural core is loaded.
+
+### Step 2 — Enter a Target Repository
+
+In the **Target Repository** field, enter either:
+- Short form: `facebook/react`
+- Full URL: `https://github.com/facebook/react`
+
+You can also click any of the **Sample Targets** below the input field to auto-fill a well-known repository instantly.
 
 ```
-repospectre/
-├── pages/
-│   ├── _app.js           # App wrapper
-│   ├── index.js          # Main UI — full animated interface
-│   └── api/
-│       └── analyze.js    # Core analysis engine
-├── styles/
-│   └── globals.css       # Global styles & animations
-├── .env.example          # Environment variables template
-├── next.config.js        # Next.js configuration
-├── vercel.json           # Vercel deployment config
-└── package.json
+facebook/react      microsoft/vscode      torvalds/linux
+vitejs/vite         vercel/next.js
 ```
 
----
+### Step 3 — Initiate Deep Scan
 
-## 🎨 Interface
+Click the green **▶ INITIATE DEEP SCAN** button.
 
-RepoSpectre features a **cinematic black & white terminal interface** inspired by GitHub's dark theme but elevated with AI agent aesthetics:
+The agent progresses through its scan pipeline in real time:
 
-- **Matrix rain background** — subtle animated character waterfall
-- **Glitch title effect** — periodic RGB-split on the header
-- **CRT scanlines** — subtle horizontal scan overlay
-- **Animated progress stages** — real-time scan pipeline visualization
-- **Score rings** — animated SVG rings for Health/Security/Quality
-- **Fade-in result cards** — staggered reveal animations
+| Stage | What Happens |
+|---|---|
+| **Initialization** | Agent boots, validates the target URL format |
+| **Repository Recon** | Fetches metadata — stars, forks, language, topics, license, contributors |
+| **File Tree Analysis** | Retrieves the complete file structure of the repository |
+| **DLL / Binary Scan** | Scans every file path for compiled binaries and suspicious extensions |
+| **Dependency Analysis** | Reads manifest files and evaluates dependency health |
+| **Security Audit** | Examines configuration, structure, and metadata for risks |
+| **Hermes Intelligence** | Sends all collected data to Hermes-4-70B for synthesis |
+| **Report Ready** | Full intelligence report is rendered |
 
----
+### Step 4 — Read the Intelligence Report
 
-## 🔒 Privacy & Security
+The report is organized into clear sections:
 
-- Your API key is **never stored** — sent directly to OpenRouter from your browser to the serverless function
-- Only **public** GitHub repositories can be analyzed
-- No repository data is logged or persisted
-- The GitHub token is optional and only used server-side
+**Overview Panel**
+The three health / security / quality score rings, risk level badge, key technology tags, and the AI-generated summary of the repository's purpose and maturity.
 
----
+**Repository Overview**
+Stars, forks, open issues, contributor count, repository size, default branch, last commit date, and creation date — all in one place.
 
-## 📝 Example Analysis Output
+**Key Findings**
+The most important observations across all scan dimensions, surfaced by the AI from the full data set.
 
-```json
-{
-  "overview": {
-    "health_score": 87,
-    "risk_level": "low",
-    "summary": "A well-maintained, actively developed repository..."
-  },
-  "security": {
-    "score": 92,
-    "issues": [
-      {"severity": "medium", "description": "No security policy (SECURITY.md) found"}
-    ]
-  },
-  "dll_scan": {
-    "verdict": "clean",
-    "found": [],
-    "suspicious": []
-  },
-  "dependencies": {
-    "total": 47,
-    "outdated": 3,
-    "vulnerable": 0
-  }
-}
-```
+**Security Audit**
+Security score, detected issues with severity labels, and specific remediation recommendations.
+
+**DLL / Binary Scanner**
+Binary verdict, list of any binary files found, suspicious flags, and technical analysis.
+
+**Dependency Analysis**
+Total dependencies, outdated and vulnerable estimates, detected ecosystem, notable packages table, and dependency management notes.
+
+**Code Quality**
+Quality score, test / CI / docs presence indicators, and five specific insights about the codebase.
+
+**Hermes-4-70B Agent Verdict**
+The final authoritative conclusion — overall health, the single most important risk, and one concrete recommendation.
 
 ---
 
-## 📜 License
+## Example: Scanning `facebook/react`
 
-MIT © 2025 RepoSpectre
+Visit **[repospectre.vercel.app](https://repospectre.vercel.app)**, enter `facebook/react`, and click scan.
+
+Within 20–30 seconds you will receive:
+
+- **Health 95 · Security 90 · Quality 95**
+- **Risk Level: LOW**
+- **Binary Verdict: Clean** — no compiled binaries detected
+- **Dependencies:** 47 total, 3 estimated outdated, 0 direct vulnerabilities
+- **Security Issues:** Medium — some transitive dependencies carry known CVEs
+- **Hermes Verdict:** React is a mature, highly-maintained JavaScript library with exemplary engineering practices. The primary concern is transitive dependency exposure. Developers should run `npm audit` regularly and consider adopting automated dependency update tooling such as Dependabot.
+
+---
+
+## Built With
+
+| Layer | Technology |
+|---|---|
+| **Frontend** | Next.js 14, React 18, pure CSS animations |
+| **Backend** | Next.js API Routes — Vercel Serverless Functions |
+| **AI Model** | Hermes-4-70B via OpenRouter (NousResearch) |
+| **Data Source** | GitHub REST API v3 |
+| **Deployment** | Vercel |
+| **Fonts** | Orbitron (display), JetBrains Mono (monospace) |
+
+---
+
+## Privacy & Security
+
+- API keys are **never stored** — used only within the serverless function per request
+- Only **public** repositories can be analyzed
+- No repository data is logged or persisted after the request completes
+- GitHub token is optional, used server-side only to increase API rate limits
 
 ---
 
 <div align="center">
-  <sub>Built with 👁 by RepoSpectre · Powered by Hermes-3-70B · Deployed on Vercel</sub>
+
+*RepoSpectre © 2025 — Built by [BITRIUMS](https://github.com/BITRIUMS)*
+
+**[repospectre.vercel.app](https://repospectre.vercel.app)** · Powered by **Hermes-4-70B** · Deployed on Vercel
+
 </div>
